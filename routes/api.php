@@ -20,10 +20,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('register', 'UserController@register');
  Route::post('login', 'UserController@authenticate');
+ Route::post('/logout', 'UserController@logout');
 
 Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('user', 'UserController@getAuthenticatedUser');
-
+   
+    Route::get('/tipoUser', 'UserController@tipoUser');
 
     /* CATEGORIAS */
     Route::get('/listaTipoUsuario', 'tipousuarioController@index');

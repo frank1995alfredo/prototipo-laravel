@@ -16,8 +16,8 @@ class clienteController extends Controller
      */
     public function index()
     {
-        $cliente = cliente::select('id', 'nomcliente', 'cedularuc', 'direccion', 
-        'telefono1','fechareg', 'correoelec')->where('flag', '=', 1)->get(); 
+        $cliente = cliente::select('id', 'nomcliente', 'direccion', 'correoelec','cedularuc', 
+        'pais', 'ciudad', 'telefono1','fechareg' )->where('flag', '=', 1)->get(); 
 
         return response()->json([
             'res' => 'ok',
@@ -47,18 +47,18 @@ class clienteController extends Controller
         $nomcliente = $request->input('nomcliente');
         $cedularuc = $request->input('cedularuc');
         $direccion = $request->input('direccion');
+        $pais = $request->input('pais');
+        $ciudad = $request->input('ciudad');
         $telefono1 = $request->input('telefono1');
-        $telefono2 = $request->input('telefono2');
         $correoelec = $request->input('correoelec');
-        $comentario = $request->input('comentario');
         
         $cliente->nomcliente = $nomcliente;
         $cliente->cedularuc = $cedularuc;
         $cliente->direccion = $direccion;
+        $cliente->pais = $pais;
+        $cliente->ciudad = $ciudad;
         $cliente->telefono1 = $telefono1;
-        $cliente->telefono2 = $telefono2;
         $cliente->correoelec = $correoelec;
-        $cliente->comentario = $comentario;
         
         $cliente->fechareg = Carbon::now()->format('Y-m-d');
 
@@ -78,16 +78,17 @@ class clienteController extends Controller
      */
     public function show($cedula)
     {
-        $cliente = cliente::select('id', 'nomcliente', 'cedularuc', 'direccion', 
-        'telefono1','fechareg')->where('cedularuc', 'like', $cedula)->count();
+        $cliente = cliente::select('id')->where('cedularuc', 'like', $cedula)->count();
         
         if($cliente == 0) {
             return response()->json([
                 'res' => 'bad',
                 'data' => 'No existe este cliente'
             ], 422);
+            
         } else {
-            $cliente = cliente::select('id', 'nomcliente', 'cedularuc', 'direccion', 
+
+            $cliente = cliente::select('id', 'nomcliente', 'pais', 'ciudad',
             'telefono1','fechareg')->where('cedularuc', 'like', $cedula)->get();
 
             return response()->json([
@@ -124,18 +125,21 @@ class clienteController extends Controller
         $nomcliente = $request->input('nomcliente');
         $cedularuc = $request->input('cedularuc');
         $direccion = $request->input('direccion');
+        $pais = $request->input('pais');
+        $ciudad = $request->input('ciudad');
         $telefono1 = $request->input('telefono1');
         $telefono2 = $request->input('telefono2');
         $correoelec = $request->input('correoelec');
-        $comentario = $request->input('comentario');
+
         
         $cliente->nomcliente = $nomcliente;
         $cliente->cedularuc = $cedularuc;
         $cliente->direccion = $direccion;
+        $cliente->pais = $pais;
+        $cliente->ciudad = $ciudad;
         $cliente->telefono1 = $telefono1;
         $cliente->telefono2 = $telefono2;
         $cliente->correoelec = $correoelec;
-        $cliente->comentario = $comentario;
         
         $cliente->save();
 
