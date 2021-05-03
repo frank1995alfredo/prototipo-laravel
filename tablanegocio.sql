@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2021 at 07:52 PM
+-- Generation Time: May 03, 2021 at 04:43 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -32,6 +32,8 @@ CREATE TABLE `cliente` (
   `nomcliente` varchar(120) DEFAULT NULL,
   `cedularuc` varchar(14) DEFAULT NULL,
   `direccion` varchar(70) DEFAULT NULL,
+  `pais` varchar(50) NOT NULL,
+  `ciudad` varchar(50) NOT NULL,
   `telefono1` varchar(10) DEFAULT NULL,
   `telefono2` varchar(10) DEFAULT NULL,
   `correoelec` varchar(100) DEFAULT NULL,
@@ -44,35 +46,46 @@ CREATE TABLE `cliente` (
 -- Dumping data for table `cliente`
 --
 
-INSERT INTO `cliente` (`id`, `nomcliente`, `cedularuc`, `direccion`, `telefono1`, `telefono2`, `correoelec`, `comentario`, `fechareg`, `flag`) VALUES
-(1, 'FERRIMANIA', '1790011674001', 'CHAVEZ FRANCO Y MACHALA', '2898248', '0997850190', 'mquiroz@ferrimania.com', 'mquiros@latinmail.com', '0000-00-00', 1),
-(2, 'HINO CIA. LTDA.', '1201898721002', 'AV. JUAN TANCA MARENGO', '2565453', '0992310205', 'noeliapalomeque@hotmail.com', 'ES un test', '2020-12-09', 0),
-(3, 'CORREOS DEL ECUADOR EP', '0915702413', 'AV. PEDRO CARBO Y 10 DE AGOSTO', '2895600', NULL, 'info@correosep.ec', NULL, '2018-05-12', 1),
-(4, 'HOLCIM CIA. LTDA. ASO.', '1201898331002', 'AV. GUAYAQUIL Y CALLE CUARTA', '25624875', '0956575859', 'gerencia@holcim.com.ec', 'El cliente: VolviÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³ al mercado mÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡', '2017-07-11', 1),
-(5, 'EMPRESA DE ALUMINIO', '0913002218001', 'Av. Las AmÃ©ricas y Calle Quinta', '2898248', '0997635802', 'ediacebvo@gmail.com', 'El cliente: ya se normalizÃ³', '2017-07-14', 1),
-(6, 'COLORATEX ECUADOR SA', '1710003406500', 'CHAVEZ FRANCO Y MACHALA', '032895645', '0997860105', 'jguayamabe@colorates.ec', 'Cliente permitido', '2017-07-14', 1),
-(7, 'FERRISARIATO EL ROSADO SA', '1760001550001', 'CALLE ILLINWORHT Y MALECÃ“N SIMÃ“N BOLÃVAR', '032567849', NULL, 'rmerygarcia@elrosado.com', NULL, '2020-12-08', 1),
-(8, 'EL FERRETERO', '1710034065001', 'CALLE ILLINWORHT Y MALECÃ“N SIMÃ“N BOLÃVAR', '2564556', '0997849511', 'rvalverde@gmail.com', 'Cliente permitido', '2017-07-14', 1),
-(9, 'FERRETON SA', '0913002218', 'AV. CORAZÃ“N DE LEÃ“N Y CALLE LIBERTAD', '2564556', '0997849511', 'antobazan@yahoo.com', 'Cliente permitido', '2017-07-14', 1),
-(10, 'FERRIMALL', '1790011674001', 'CHAVEZ FRANCO Y MACHALA', '2898248', '0997850190', 'mquiros@latinmail.com', 'Cliente permitido', '2017-07-18', 1),
-(11, 'TERRAPLIENZA', '1303753618', 'CALLE LITORAL Y GUAMOTE', '2348045', NULL, 'ediacebo@hotmail.com', NULL, '2017-08-14', 1),
-(12, 'FERRETERIA EL TORNILLO', '0190158357001', 'AV. LAS AGUAS Y CALLE DELTA', '2564578', '0994562302', 'mespinoza@gmail.com', 'Cliente permitido', '2017-08-14', 1),
-(13, 'ARTEHOGAT', '1310651912', 'Av. Quito y Sucre esquina', '2350894', '0985112001', 'epazminio@gmail.com', 'Cliente permitido', '2017-08-14', 1),
-(14, 'EL OXIFIERRO', '0302040142', 'MACHALA Y CHAVEZ FRANCO', '2564578', '0997815102', 'epazminio@gmail.com', 'ES UN TEST', '2018-12-22', 1),
-(15, 'ELECTROFERRETERO', '0302040159', 'Av. Machala y Calle GarcÃ­a Goyena', '2350894', NULL, 'gerencia@holcim.com.ec', NULL, '2017-08-14', 1),
-(16, 'FERRI PICA', '0103232005', 'Av. 25 de Julio y Calle PÃ­o Jaramillo', '2658978', NULL, 'mquiros@latinmail.com', NULL, '2017-08-14', 0),
-(17, 'EMILIO TACURI', '1802556199', 'CHAVEZ FRANCO Y MACHALA', '2350894', NULL, 'etacuri@hotmail.com', NULL, '2017-08-20', 0),
-(18, 'SAUL FRANCISCO BECERRA', '1202692321', 'AV. MACHALA Y CALLE CHAVEZ FRANCO', '2564578', '0956124510', 'rcordova@gmail.com', 'Cliente permitido', '2017-08-20', 0),
-(19, 'RAFAEL BERMEO NAVIA', '0919109769001', 'Av. Las AmÃ©ricas y Calle Quinta', '2658978', '0992151025', 'wgamarra@hotmail.com', 'Cliente permitido', '2017-08-20', 0),
-(20, 'TEOFILO BOHORQUEZ CONTRERAS', '1200754164001', 'CALLE LITORAL Y GUAMOTE', '2348045', '0985212501', 'mvelasquez@gmail.com', 'Cliente permitido', '2017-08-20', 0),
-(21, 'franklin alfredo', '2100373873', 'km 1/2', '0994569828', '0498491', 'frank@gmail.com', 'nuevo comentario', '2021-04-25', 0),
-(22, 'sfsf', '234234', 'sdfd', 'dasdasd', NULL, 'frank@gmail.com', NULL, '2021-04-25', 0),
-(23, 'Franklin Cañadas', '2100373873', 'LAS ALBRICIAS', '0495781', NULL, 'frank@gmail.com', NULL, '2021-04-25', 0),
-(24, 'sfsfsdf', '234234', 'sdfd', 'dasdasd', NULL, 'frank@gmail.com', NULL, '2021-04-25', 0),
-(25, 'Franklin Cañadas', '2100373873', 'km 1/2 via narajito', '4654', NULL, 'frank@gmail.com', NULL, '2021-04-26', 0),
-(26, 'Franklin Cañadas', '2100373873', 'km 1/2 via narajito', '0495781', NULL, 'frank@gmail.com', NULL, '2021-04-26', 0),
-(27, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-26', 0),
-(28, 'Franklin Cañadas', '234234', 'km 1/2 via narajito', '2895600', NULL, 'info@correosep.ec', NULL, '2021-04-26', 1);
+INSERT INTO `cliente` (`id`, `nomcliente`, `cedularuc`, `direccion`, `pais`, `ciudad`, `telefono1`, `telefono2`, `correoelec`, `comentario`, `fechareg`, `flag`) VALUES
+(1, 'FERRIMANIA', '1790011674001', 'CHAVEZ FRANCO Y MACHALA', 'Ecuador', 'Quito', '2898248', NULL, 'mquiroz@ferrimania.com', 'mquiros@latinmail.com', '0000-00-00', 1),
+(2, 'HINO CIA. LTDA.', '1201898721002', 'AV. JUAN TANCA MARENGO', '', '', '2565453', '0992310205', 'noeliapalomeque@hotmail.com', 'ES un test', '2020-12-09', 0),
+(3, 'CORREOS DEL ECUADOR EP', '0915702413', 'AV. PEDRO CARBO Y 10 DE AGOSTO', 'Ecuador', 'Quito', '2895600', NULL, 'info@correosep.ec', NULL, '2018-05-12', 1),
+(4, 'HOLCIM CIA. LTDA. ASO.', '1201898331002', 'AV. GUAYAQUIL Y CALLE CUARTA', 'Ecuador', 'Quito', '25624875', NULL, 'gerencia@holcim.com.ec', 'El cliente: VolviÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³ al mercado mÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡', '2017-07-11', 1),
+(5, 'EMPRESA DE ALUMINIO', '0913002218001', 'Av. Las AmÃ©ricas y Calle Quinta', 'Peru', 'Lima', '2898248', NULL, 'ediacebvo@gmail.com', 'El cliente: ya se normalizÃ³', '2017-07-14', 1),
+(6, 'COLORATEX ECUADOR SA', '1710003406500', 'CHAVEZ FRANCO Y MACHALA', 'Ecuador', 'Cuenca', '032895645', NULL, 'jguayamabe@colorates.ec', 'Cliente permitido', '2017-07-14', 1),
+(7, 'FERRISARIATO EL ROSADO SA', '1760001550001', 'CALLE ILLINWORHT Y MALECÃ“N SIMÃ“N BOLÃVAR', 'Ecuador', 'Ambato', '032567849', NULL, 'rmerygarcia@elrosado.com', NULL, '2020-12-08', 1),
+(8, 'EL FERRETERO', '1710034065001', 'CALLE ILLINWORHT Y MALECÃ“N SIMÃ“N BOLÃVAR', 'Ecuador', 'Quito', '2564556', NULL, 'rvalverde@gmail.com', 'Cliente permitido', '2017-07-14', 1),
+(9, 'FERRETON SA', '0913002218', 'AV. CORAZÃ“N DE LEÃ“N Y CALLE LIBERTAD', 'Ecuador', 'Guayaquil', '2564556', NULL, 'antobazan@yahoo.com', 'Cliente permitido', '2017-07-14', 1),
+(10, 'FERRIMALL', '1790011674001', 'CHAVEZ FRANCO Y MACHALA', 'Ecuador', 'Guayaquil', '28982483', NULL, 'mquiros@latinmail.com', 'Cliente permitido', '2017-07-18', 1),
+(11, 'TERRAPLIENZA', '1303753618', 'CALLE LITORAL Y GUAMOTE', 'Ecuador', 'Guayaquil', '2348045', NULL, 'ediacebo@hotmail.com', NULL, '2017-08-14', 1),
+(12, 'FERRETERIA EL TORNILLO', '0190158357001', 'AV. LAS AGUAS Y CALLE DELTA', 'Ecuador', 'Quito', '2564578', NULL, 'mespinoza@gmail.com', 'Cliente permitido', '2017-08-14', 1),
+(13, 'ARTEHOGAT', '1310651912', 'Av. Quito y Sucre esquina', 'Peru', 'Lima', '0999637950', NULL, 'epazminio@gmail.com', 'Cliente permitido', '2017-08-14', 1),
+(14, 'EL OXIFIERRO', '0302040142', 'MACHALA Y CHAVEZ FRANCO', 'Ecuador', 'Cuenca', '2564578', NULL, 'epazminio@gmail.com', 'ES UN TEST', '2018-12-22', 1),
+(15, 'ELECTROFERRETERO', '0302040159', 'Av. Machala y Calle GarcÃ­a Goyena', 'Ecuador', 'Guayaquil', '2350894', NULL, 'gerencia@holcim.com.ec', NULL, '2017-08-14', 1),
+(16, 'FERRI PICA', '0103232005', 'Av. 25 de Julio y Calle PÃ­o Jaramillo', '', '', '2658978', NULL, 'mquiros@latinmail.com', NULL, '2017-08-14', 0),
+(17, 'EMILIO TACURI', '1802556199', 'CHAVEZ FRANCO Y MACHALA', '', '', '2350894', NULL, 'etacuri@hotmail.com', NULL, '2017-08-20', 0),
+(18, 'SAUL FRANCISCO BECERRA', '1202692321', 'AV. MACHALA Y CALLE CHAVEZ FRANCO', '', '', '2564578', '0956124510', 'rcordova@gmail.com', 'Cliente permitido', '2017-08-20', 0),
+(19, 'RAFAEL BERMEO NAVIA', '0919109769001', 'Av. Las AmÃ©ricas y Calle Quinta', '', '', '2658978', '0992151025', 'wgamarra@hotmail.com', 'Cliente permitido', '2017-08-20', 0),
+(20, 'TEOFILO BOHORQUEZ CONTRERAS', '1200754164001', 'CALLE LITORAL Y GUAMOTE', '', '', '2348045', '0985212501', 'mvelasquez@gmail.com', 'Cliente permitido', '2017-08-20', 0),
+(21, 'franklin alfredo', '2100373873', 'km 1/2', '', '', '0994569828', '0498491', 'frank@gmail.com', 'nuevo comentario', '2021-04-25', 0),
+(22, 'sfsf', '234234', 'sdfd', '', '', 'dasdasd', NULL, 'frank@gmail.com', NULL, '2021-04-25', 0),
+(23, 'Franklin Cañadas', '2100373873', 'LAS ALBRICIAS', '', '', '0495781', NULL, 'frank@gmail.com', NULL, '2021-04-25', 0),
+(24, 'sfsfsdf', '234234', 'sdfd', '', '', 'dasdasd', NULL, 'frank@gmail.com', NULL, '2021-04-25', 0),
+(25, 'Franklin Cañadas', '2100373873', 'km 1/2 via narajito', '', '', '4654', NULL, 'frank@gmail.com', NULL, '2021-04-26', 0),
+(26, 'Franklin Cañadas', '2100373873', 'km 1/2 via narajito', '', '', '0495781', NULL, 'frank@gmail.com', NULL, '2021-04-26', 0),
+(27, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, '2021-04-26', 0),
+(28, 'Franklin Cañadas', '234234', 'km 1/2 via narajito', 'Ecuador', 'Guayaquil', '2895600', NULL, 'info@correosep.ec', NULL, '2021-04-26', 0),
+(29, 'gdfg', '234234', 'km 1/2 via narajito', '', '', 'dasdasd', NULL, 'info@correosep.ec', NULL, '2021-04-28', 0),
+(30, 'Jose Piguabe', '218196818', '12 de febrero y la troncal', 'Peru', 'Lima', '81651981', NULL, 'jose19995@gmail.com', NULL, '2021-04-30', 1),
+(31, 'CORREOS DEL ECUADOR EP', '0915702413', '12 de febrero', 'Ecuador', '131', '0999637950', NULL, 'rmerygarcia@elrosado.com', NULL, '2021-04-30', 0),
+(32, 'CORREOS DEL ECUADOR EP', '0915702413', '12 de febrero', 'Ecuador', 'Guayaquil', '0999637950', NULL, 'rmerygarcia@elrosado.com', NULL, '2021-04-30', 1),
+(33, 'CORREOS DEL ECUADOR EP', '0915702413', '12 de febrero', 'Ecuador', '131', '0999637950', NULL, 'rmerygarcia@elrosado.com', NULL, '2021-04-30', 0),
+(34, 'CORREOS DEL ECUADOR EP', '0915702413', '12 de febrero', 'Ecuador', '131', '0999637950', NULL, 'rmerygarcia@elrosado.com', NULL, '2021-04-30', 0),
+(35, 'FERRIMANIA 3', '1790011674001', '12 de febrero', 'Ecuador', 'Guayaquil', '0999637950', NULL, 'rmerygarcia@elrosado.com', NULL, '2021-04-30', 1),
+(36, 'FERRIMANIA 2', '1790011674001', '12 de febrero', 'Ecuador', 'Guayaquil', '0999637950', NULL, 'rmerygarcia@elrosado.com', NULL, '2021-04-30', 1),
+(37, 'Jose Alberto Piguabe', '2100373873', '12 de febrero', 'Ecuador', 'Cuenca', '0999637950', NULL, 'mquiros@latinmail.com', NULL, '2021-05-01', 1),
+(38, 'Franklin Cañadas', '1790011674001', 'km 1/2 via narajito', 'Guayaquil', 'Milagro', '0994569828', NULL, 'frank@gmail.com', NULL, '2021-05-01', 1),
+(39, 'Franklin Cañadas', '234234', '12 de febrero', 'Peru', 'Guayaquil', '0999637950', NULL, 'rmerygarcia@elrosado.com', NULL, '2021-05-01', 0);
 
 -- --------------------------------------------------------
 
@@ -214,7 +227,57 @@ INSERT INTO `tbllogin` (`id`, `idusuario`, `Fecha`, `Horai`, `Fecha2`, `Horas`, 
 (74, 1, '2021-04-20', '00:05:41', '2021-04-20', '00:05:41', '0', '0', '0', '0', '00:05:41', 0, 1, 1),
 (75, 1, '2021-04-21', '09:33:38', '2021-04-21', '09:33:38', '0', '0', '0', '0', '09:33:38', 0, 1, 1),
 (76, 1, '2021-04-22', '10:23:09', '2021-04-22', '10:23:09', '0', '0', '0', '0', '10:23:09', 0, 1, 1),
-(77, 1, '2021-04-23', '11:14:18', '2021-04-23', '11:14:18', '0', '0', '0', '0', '11:14:18', 0, 1, 1);
+(77, 1, '2021-04-23', '11:14:18', '2021-04-23', '11:14:18', '0', '0', '0', '0', '11:14:18', 0, 1, 1),
+(78, 1, '2021-04-29', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 1),
+(268, 2, '2021-05-02', '04:20:27', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(269, 2, '2021-05-02', '04:22:23', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(270, 2, '2021-05-02', '04:24:35', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(271, 1, '2021-05-02', '04:27:37', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(272, 2, '2021-05-02', '04:28:52', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(273, 1, '2021-05-02', '04:35:47', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(274, 1, '2021-05-02', '04:36:34', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(275, 2, '2021-05-02', '04:36:50', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(276, 2, '2021-05-02', '04:38:47', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(277, 2, '2021-05-02', '04:39:26', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(278, 2, '2021-05-02', '04:40:22', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(279, 1, '2021-05-02', '04:42:05', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(280, 1, '2021-05-02', '04:42:34', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(281, 2, '2021-05-02', '04:42:47', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(282, 1, '2021-05-02', '04:44:04', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(283, 2, '2021-05-02', '06:42:33', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(284, 1, '2021-05-02', '06:52:22', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(285, 2, '2021-05-02', '06:54:31', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(286, 2, '2021-05-02', '06:55:21', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(287, 2, '2021-05-02', '06:57:40', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(288, 2, '2021-05-02', '06:58:03', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(289, 1, '2021-05-02', '07:00:39', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(290, 1, '2021-05-02', '11:07:48', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(291, 1, '2021-05-02', '11:15:19', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(292, 2, '2021-05-02', '11:15:34', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(293, 1, '2021-05-02', '11:17:04', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(294, 2, '2021-05-02', '11:20:13', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(295, 1, '2021-05-02', '11:24:11', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(296, 1, '2021-05-02', '11:24:36', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(297, 1, '2021-05-02', '11:28:06', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(298, 2, '2021-05-02', '11:29:13', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(299, 1, '2021-05-02', '11:32:17', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(300, 1, '2021-05-02', '11:36:15', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(301, 1, '2021-05-02', '11:37:10', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(302, 2, '2021-05-02', '11:39:55', '2021-05-02', '11:40:16', '-2.14677', '-79.91261', '-2.14677', '-79.91261', '45.71.113.71', 0, 1, 1),
+(303, 2, '2021-05-02', '11:41:20', '2021-05-02', '11:41:32', '-2.14677', '-79.91261', '-2.14677', '-79.91261', '45.71.113.71', 0, 1, 1),
+(304, 1, '2021-05-02', '11:41:46', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(305, 1, '2021-05-02', '11:44:10', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(306, 1, '2021-05-02', '11:45:51', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(307, 1, '2021-05-02', '11:47:15', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(308, 1, '2021-05-02', '11:54:51', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(309, 1, '2021-05-02', '11:57:20', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(310, 1, '2021-05-02', '11:58:20', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(311, 1, '2021-05-03', '12:04:46', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(312, 2, '2021-05-03', '12:06:13', '2021-05-03', '12:06:42', '-2.14677', '-79.91261', '-2.14677', '-79.91261', '45.71.113.71', 0, 1, 1),
+(313, 1, '2021-05-03', '12:08:25', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(314, 1, '2021-05-03', '12:08:57', NULL, NULL, '-2.14677', '-79.91261', NULL, NULL, '45.71.113.71', 0, 1, 1),
+(315, 1, '2021-05-03', '12:13:33', '2021-05-03', '12:13:36', '-2.14677', '-79.91261', '-2.14677', '-79.91261', '45.71.113.71', 0, 1, 1),
+(316, 1, '2021-05-03', '12:21:12', '2021-05-03', '12:21:23', '-2.14677', '-79.91261', '-2.14677', '-79.91261', '45.71.113.71', 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -264,7 +327,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `idtipouser`, `fecha_reg`, `flag`) VALUES
-(1, 'franklin', 'frank1995alfredo@gmail.com', NULL, '$2y$10$k4V99HAGZV0SNczY8nxCUe17FTNdK7R.2Rd7D57rG61hPDO45vRqe', NULL, '2021-04-26 00:46:22', '2021-04-26 00:46:22', 2, NULL, 1);
+(1, 'franklin', 'frank1995alfredo@gmail.com', NULL, '$2y$10$k4V99HAGZV0SNczY8nxCUe17FTNdK7R.2Rd7D57rG61hPDO45vRqe', NULL, '2021-04-26 00:46:22', '2021-04-26 00:46:22', 2, NULL, 1),
+(2, 'admin', 'admin@gmail.com', NULL, '$2y$10$B5DFaAO9gSkartDt5j8Fr.tM9cVMymuAGXYn4oSBsM67VaEzYMzEu', NULL, '2021-04-29 07:36:28', '2021-04-29 07:36:28', 1, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -353,7 +417,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -371,7 +435,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `tbllogin`
 --
 ALTER TABLE `tbllogin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=317;
 
 --
 -- AUTO_INCREMENT for table `tipousuario`
@@ -383,7 +447,7 @@ ALTER TABLE `tipousuario`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
@@ -400,6 +464,12 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `tbllogin`
   ADD CONSTRAINT `tbllogin_ibfk_1` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`idtipouser`) REFERENCES `tipousuario` (`id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `usuarios`
